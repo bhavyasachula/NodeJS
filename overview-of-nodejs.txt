@@ -1,0 +1,12 @@
+node js --> is a wrapper with the google v8 engine 
+at its core
+node js is/give  js runtime environment we can create or work with server 
+or 
+backend till the nodejs is running 
+npm init --> to create the json file
+json file is lakha jokha of the project
+
+DEV DEPENDENCIES --> means it gets uninstall automatically when the project goes from developement to deployment phasee
+--------------------------------------------------------------------------
+Express js is just the npm package
+Express js --> is a framework that handles or manages everything from recieving the request and giving the response
