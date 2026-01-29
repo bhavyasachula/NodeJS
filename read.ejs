@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Card</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-10 bg-slate-950">
+<a href="/" class="text-blue-500">back to home</a>
+<div class="users w-full h-full ">
+<div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-2">
+    <% users.forEach(function(user){%>
+  <div class=" user bg-slate-900 text-white rounded-xl shadow-xl w-72 p-5 flex flex-wrap gap-4">
+   <img src="<%= user.image %>" class="w-14 h-14 rounded-full object-cover border border-slate-700" />
+     <div>
+      <h3 class="text-lg font-semibold leading-tight">
+     <%= user.name %>
+      </h3>
+      <p class="text-sm text-slate-400">
+        <%= user.email %>
+      </p>
+    </div>
+    <div class="">
+        <a href="/edit" class="text-2x1 text-green-500  p-2 ">Edit</a>
+          <a href="/delete/<%= user._id %>" class="text-1xl  text-red-500  p-2 ml-6">delete</a>
+    </div>
+
+  </div>
+    <% })%>
+</div>
+</div>
+</body>
+</html>
