@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+    
+        h1 {
+            color: blue;
+        }
+
+        textarea {
+            padding: 4px;
+            resize: none;
+        }
+        .Container {
+
+            display: flex;
+            flex-wrap: wrap;
+            border: 5px  ;
+            margin: 5px;
+            padding: 4px;
+        }
+
+        .post {
+            width: 15% ;
+            border: 2px solid rgb(121, 119, 119);
+            margin: 4px;
+            padding: 5px;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Hello <%=user.username%>
+    </h1>
+    
+    <h5>Create Your Post</h5>
+    <form action="/post" method="post">
+        <textarea name="content" placeholder="You can write a post" cols="29" rows="7"></textarea><br>
+        <input type="submit" value="Create a Post">
+    </form>
+    <br>
+    <br>
+    <div class="Container">
+        <%user.posts.forEach(function(post){ %>
+            <div class="post">
+            <h4>@<%=user.username%></h4>
+            <p> <%= post.content %></p>
+                <small><%=post.likes.length%> likes</small>
+            <div class="btns">
+                <a href="/like/<%= post._id %>">like</a>
+                <a href="/edit/<%=post._id %>">edit</a>
+            </div>
+              </div>
+        <%})%>
+      
+      
+        </div>
+        <a href="/logout">logout</a>
+</body>
+
+</html>
