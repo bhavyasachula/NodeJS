@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Grid</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="m-0 font-sans bg-[#e5e5e5]">
+
+ <div class="flex items-center justify-between px-[15px]">
+    <h1 class="text-[rgb(59,59,230)] text-2xl font-bold">Scatch</h1>
+ <h3><a href="/users/logout" class="text-red-500 no-underline">logout</a></h3>
+ </div>
+
+<div class="flex p-[25px] gap-[30px]">
+  
+  <div class="w-[200px]">
+    <h3 class="text-sm font-semibold mb-[10px]">sort by</h3>
+    <select class="p-[5px] mb-[30px] border rounded">
+      <option>Newest</option>
+      <option>Price Low to High</option>
+      <option>Price High to Low</option>
+    </select>
+
+    <ul class="list-none p-0 mb-[30px]">
+      <li class="mb-[8px] cursor-pointer text-sm">New Collection</li>
+      <li class="mb-[8px] cursor-pointer text-sm">All Products</li>
+      <li class="mb-[8px] cursor-pointer text-sm">Discounted Products</li>
+    </ul>
+
+    <h3 class="text-sm font-semibold mb-[10px]">Filter by :</h3>
+    <ul class="list-none p-0">
+      <li class="mb-[8px] cursor-pointer text-sm">Availability</li>
+      <li class="mb-[8px] cursor-pointer text-sm">Discount</li>
+    </ul>
+  </div>
+
+  <div class="flex-1 grid grid-cols-4 gap-[30px]">
+    
+     <%products.forEach(function(product){ %>
+ <div class="rounded-[20px] flex flex-col">
+      <div class="overflow-hidden rounded-[20px] bg-white h-[300px]">
+        <img class="h-full w-full object-cover  " src="data:image/jpeg;base64,<%= product.image.toString('base64') %> ">
+      </div>
+      <div class="rounded-[20px] bg-[<%=product.panelcolor%>] text-[<%=product.textcolor%>] p-[15px] flex justify-between items-center">
+        <div class="text-sm">
+          <%=product.name %>
+          <span class="block mt-[5px] font-medium"><%=product.price %></span>
+        </div>
+        <button class="w-[28px] h-[28px] rounded-full border-none bg-white text-lg cursor-pointer">+</button>
+      </div>
+    </div>
+   <%  })%>
+
+  </div>
+</div>
+
+</body>
+</html>
